@@ -1,0 +1,96 @@
+# German MoE GPT v6 - Requirements
+# Environment: nano_moe (Conda)
+# Python: 3.10+
+# CUDA: 12.4
+
+# ============================================================================
+# CRITICAL: PyTorch Installation
+# ============================================================================
+# IMPORTANT: Install PyTorch FIRST with CUDA support!
+# DO NOT use pip for PyTorch on Windows - use conda instead:
+#
+#   conda install pytorch torchvision torchaudio pytorch-cuda=12.4 -c pytorch -c nvidia
+#
+# Or from PyTorch website (pip with CUDA):
+#   pip install torch==2.6.0+cu124 torchvision==0.21.0+cu124 torchaudio==2.6.0+cu124 --index-url https://download.pytorch.org/whl/cu124
+#
+# Current installed versions:
+#   torch==2.6.0+cu124
+#   torchvision==0.21.0+cu124
+#   torchaudio==2.6.0+cu124
+# ============================================================================
+
+# Core ML Libraries (install AFTER PyTorch!)
+transformers==4.56.1
+datasets==4.0.0
+accelerate==1.10.1
+
+# Training & Monitoring
+tensorboard==2.20.0
+tensorboard-data-server==0.7.2
+
+# Tokenization
+tokenizers==0.22.0
+tiktoken==0.11.0
+
+# Data Processing
+numpy==1.26.4
+pandas==2.3.2
+pyarrow==21.0.0
+
+# Utilities
+tqdm==4.67.1
+safetensors==0.6.2
+huggingface-hub==0.34.4
+regex==2025.9.1
+fsspec==2025.3.0
+dill==0.3.8
+multiprocess==0.70.16
+xxhash==3.5.0
+
+# Performance (Windows CUDA)
+triton-windows==3.2.0.post19  # Optimized kernels for CUDA
+
+# Configuration & Logging
+PyYAML==6.0.2
+python-dotenv==1.0.1
+requests==2.32.5
+httpx[http2]==0.27.0
+
+# Optional: Weights & Biases (uncomment if needed)
+# wandb>=0.15.0
+
+# ============================================================================
+# Installation Instructions
+# ============================================================================
+#
+# STEP 1: Create conda environment
+#   conda create -n nano_moe python=3.10
+#   conda activate nano_moe
+#
+# STEP 2: Install PyTorch with CUDA 12.4
+#   conda install pytorch torchvision torchaudio pytorch-cuda=12.4 -c pytorch -c nvidia
+#
+# STEP 3: Install remaining dependencies
+#   pip install -r requirements.txt --no-deps
+#   (--no-deps prevents pip from reinstalling PyTorch!)
+#
+# STEP 4: Verify installation
+#   python -c "import torch; print(f'CUDA available: {torch.cuda.is_available()}')"
+#
+# ============================================================================
+# Notes
+# ============================================================================
+#
+# - DO NOT install PyTorch via pip requirements.txt on Windows!
+#   It will install CPU version or wrong CUDA version
+#
+# - triton-windows only works on Windows with CUDA
+#   On Linux, use: triton>=2.0.0
+#
+# - datasets 4.0.0 has breaking changes from 2.x
+#   Use load_from_disk() / save_to_disk() for eval dataset
+#
+# - transformers 4.56.1 is compatible with our custom MoE implementation
+#
+# ============================================================================
