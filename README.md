@@ -33,7 +33,7 @@ Das Ziel dieses Projekts war das Training eines leistungsfähigen, mittelgroßen
 -   **Trainings-Verlust:** Reduziert von 12.0 → 2.55 (79% Reduktion)
 -   **Evaluierungs-Verlust:** Reduziert von 4.58 → 2.40 (48% Reduktion)
 -   **Finale Perplexität:** **11.0** (exp(2.40))
--   **Gesamttrainingszeit:** ca. 48 Stunden
+-   **Gesamttrainingszeit:** ca. 120 Stunden
 
 ## Benutzung
 
