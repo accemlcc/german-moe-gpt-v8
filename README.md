@@ -245,7 +245,7 @@ This project implements techniques from the following research papers:
 
 ## 📄 License
 
-[Add your license here]
+MIT
 
 ## 🙏 Acknowledgments
 
